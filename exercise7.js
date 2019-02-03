@@ -16,7 +16,7 @@ function reduce(arr, fn, initial) {
                 value, arr[index], index, arr
             ));
         }
-    )(0, initial);
+    )(0, initial); 
 }
 
 module.exports = reduce
