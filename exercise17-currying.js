@@ -1,16 +1,11 @@
-function curryN(fn, n, args = []) {
-    var curryAmount = n;
-    if(n === undefined || typeof n === 'undefined') {
-        curryAmount = fn.length;
-    }
+function curryN(fn, n) {
+    n = n || fn.length;
     
     return function(x) {
-        curryAmount -= 1;
-        if(curryAmount >= 0) {
-            args.push(x);
-            return curryN(fn, curryAmount, args);
+        if(n > 1) {
+            return curryN(fn, n -1);
         }
-        return fn.call(null, args);        
+        return fn(x);        
     };
 }
 
